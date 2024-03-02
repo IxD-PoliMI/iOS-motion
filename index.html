@@ -18,7 +18,7 @@
       function getAccel(){ 
         DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') { 
-          cdocument.getElementById('alpha').value = "accelerometer permission granted";
+          cdocument.getElementById('permission').value = "accelerometer permission granted";
 
           // Add a listener to get smartphone acceleration
           // in the XYZ axes (units in m/s^2) 
@@ -41,7 +41,7 @@
         <button id="accelPermsButton"  style="height:50px;" onclick="getAccel()"><h1>Get Accelerometer Permissions</h1></button>
         
         <label for="field4">Permission: </label>
-        <input type="text" id="permission" name="field4"><br><br>
+        <input type="text" id="permission" name="permission"><br><br>
         
         <label for="field1">alpha:</label>
         <input type="text" id="alpha" name="beta"><br><br>
