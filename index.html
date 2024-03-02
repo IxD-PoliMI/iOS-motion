@@ -18,7 +18,7 @@
       function getAccel(){ 
         DeviceMotionEvent.requestPermission().then(response => {
         if (response == 'granted') { 
-          console.log("accelerometer permission granted");
+          cdocument.getElementById('alpha').value = "accelerometer permission granted";
 
           // Add a listener to get smartphone acceleration
           // in the XYZ axes (units in m/s^2) 
@@ -28,14 +28,28 @@
           // Add a listener to get smartphone orientation
           // in the alpha-beta-gamma axes (units in degrees)
           window.addEventListener('deviceorientation',(event) => {
-            console.log(event); });
+            document.getElementById('alpha').value = event.alpha;
+            document.getElementById('beta').value = event.beta;
+            document.getElementById('gamma').value = event.gamma;
+          });
           }
         }); 
       }
     </script>
     </head>
-    <body style="background-color:lightblue;">
+    <body>
         <button id="accelPermsButton"  style="height:50px;" onclick="getAccel()"><h1>Get Accelerometer Permissions</h1></button>
-        <div class="indicatorDot" style="left:30%; top:30%;"></div>
+        
+        <label for="field4">Permission: </label>
+        <input type="text" id="permission" name="field4"><br><br>
+        
+        <label for="field1">alpha:</label>
+        <input type="text" id="alpha" name="beta"><br><br>
+
+        <label for="field2">beta:</label>
+        <input type="text" id="beta" name="beta"><br><br>
+
+        <label for="field3">gamma:</label>
+        <input type="text" id="gamma" name="gamma"><br><br>
     </body>
 </html>
